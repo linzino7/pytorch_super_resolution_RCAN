@@ -1,7 +1,7 @@
-# pytorch_super_resolution_RCAN
-NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
+# pytorch-super_resolution-RCAN
+HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
 
-當期課號：5241 永久課號：IOC5008
+
 
 # pytorch-YOLOv4
 A minimal PyTorch implementation of YOLOv4.
