@@ -43,8 +43,8 @@ pre_preocess.py
 
 ### Prepare Images
 #### Download Classes Image
-Download trainging Data: https://drive.google.com/file/d/1QUMTskptKjQwSaSX4b0VtZIRpldTtNKn/view?usp=sharing
-Download testing Data: https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images.zip
+- Download trainging Data: https://drive.google.com/file/d/1QUMTskptKjQwSaSX4b0VtZIRpldTtNKn/view?usp=sharing
+- Download testing Data: https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images.zip
 
 Download and extract *training_hr_images.zip* and *testing_lr_images.zip* to *data* directory.
 
