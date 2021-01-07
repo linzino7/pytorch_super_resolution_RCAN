@@ -1,0 +1,43 @@
+name: 003_MSRResNet_x3_f64b16_DIV2K_1000k_B16G1_001pretrain_wandb_zino
+model_type: SRModel
+scale: 3
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: hw04_ztest
+    type: PairedImageDataset
+    dataroot_gt: data/val_hr_images
+    dataroot_lq: data/val_lr_images
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: MSRResNet
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_block: 16
+  upscale: 3
+
+# path
+path:
+  pretrain_network_g: /mnt/nas/homes/zino/DeepLearner.4/hw04/BasicSR/experiments/003_MSRResNet_x3_f64b16_hw04_1000k_B16G1_001pretrain_wandb/models/net_g_155000.pth
+  strict_load_g: true
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 3
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 3
+      test_y_channel: false
