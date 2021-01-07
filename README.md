@@ -18,26 +18,35 @@ To reproduct my submission without retrainig, do the following steps:
 2.  [Training](#Training)
 3.  [Inference](#Inference)
 
+## Prepare Env.
+### clone BasicSR
+```
+$ git clone https://github.com/xinntao/BasicSR.git
+```
+
+### Project directory structured
+When you are ready, your directory structured as follow:
+```
+BasicSR/
+data/
+|+ testing_lr_images/
+|+ training_hr_images/
+inference/
+|- inference_RCAN.py
+options/
+|- train_RCANx3_g128b32_gt96_te384.yml
+results/
+pre_preocess.py
+```
+
 ## Dataset Preparation
-All required files except images are already in data directory.
-If you generate CSV files (duplicate image list, split, leak.. ), original files are overwritten. The contents will be changed, but It's not a problem.
 
 ### Prepare Images
-After downloading images, the data directory is structured as:
-```
-train.txt
-  +- data/
-  | +- train/
-  | +- test/
-  | +- training_labels.csv
-  | +- val.txt
-
-```
-
 #### Download Classes Image
-Smaill SVHN Dataset: https://drive.google.com/drive/u/1/folders/1Ob5oT9Lcmz7g5mVOcYH3QugA7tV3WsSl
+Download trainging Data: https://drive.google.com/file/d/1QUMTskptKjQwSaSX4b0VtZIRpldTtNKn/view?usp=sharing
+Download testing Data: https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images.zip
 
-Download and extract *tain.tar.gz* and *test.tar.gz* to *data* directory.
+Download and extract *training_hr_images.zip* and *testing_lr_images.zip* to *data* directory.
 
 ### Transform data
 Use construct_datasets.py to make train.txt .
@@ -59,14 +68,26 @@ Label3
 ...
 ```
 
+### Prepare Images
+After downloading images and pre-process, the data directory is structured as:
+```
+ data/
+  | +- training_hr_images/
+  | +- testing_lr_images/
+  | +- T_hr_images_te384/
+  | +- T_lr_images_te384/
+  | +- val_hr_images_te384/
+  | +- val_lr_images_te384/
+```
+
 ## Training
 ### Setting
-You can setting bach size and epoch in [cfg.py](https://github.com/linzino7/pytorch-YOLOv4/blob/master/cfg.py)
+You can setting bach size and epoch in [options/train_RCANx3_g64b32_gt96_te384.yml](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/options/train_RCANx3_g128b32_gt96_te384.yml)
 
 ### Train models
 To train models, run following commands.
 ```
-$ python3 train.py -d data/ -classes 10 -g 0 -pretrained ./weight/yolov4.conv.137.pth
+$ python3 BasicSR/basicsr/train.py -opt options/train_RCANx3_g64b32_gt96_te384.yml
 ```
 The expected training times are:
 
@@ -77,19 +98,18 @@ YOLOv4 | 4x NVIDIA GTX 1080 | 608x608 | 1 | 0.6 hour | 32 |
 
 ### Muti-GPU Training
 ```
-$ python3 train.py -d data/ -classes 10 -g 0,1,2,3 -pretrained ./weight/yolov4.conv.137.pth
+$ python3 -m torch.distributed.launch --nproc_per_node=2 --master_port=4321 BasicSR/basicsr/train.py \
+  -opt options/train_RCANx3_g64b32_gt96_te384.yml --launcher pytorch
 ```
 
 ## Inference
 
-### Inference single images
-```
-$ python3 models.py 10 Yolov4_epoch10.pth data/test/1.png 608 608 data/SVHN.names
-```
-
 ### Inference images in folder
 ```
-$ python3 models_mut.py 10 Yolov4_epoch22_pre.pth data/test/ 608 608 data/SVHN.names
+$ python3 inference/inference_RCAN.py \
+ --model_path BasicSR/experiments/201_RCANx3_g64b32_gt96_te384/models/net_g_2000.pth \
+ --folder data/testing_lr_images/ \
+ --output_folder results/RCANx3_g64b32_gt96_te384_2000/ 
 ```
 
 # Reference:
