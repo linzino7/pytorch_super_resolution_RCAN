@@ -123,13 +123,37 @@ $ python3 BasicSR/inference/inference_MSRResNet.py \
 ```
 
 ## result by PSNR 25.07
-ground trouth：
+ground trouth 04.png：
 
 ![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/04.png)
 
-result：
+result 04.png：
 
 ![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/04.png)
+
+ground trouth 06.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/06.png)
+
+result 06.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/06.png)
+
+ground trouth 09.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/09.png)
+
+result 09.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/09.png)
+
+ground trouth 11.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/11.png)
+
+result 11.png：
+
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/11.png)
 
 # Reference:
 - Paper RCAN: [Image Super-Resolution Using Very Deep Residual Channel Attention Networks](https://arxiv.org/abs/1807.02758)
