@@ -98,6 +98,10 @@ $ python3 models_mut.py 10 Yolov4_epoch22_pre.pth data/test/ 608 608 data/SVHN.n
 ```
 
 # Reference:
+- Paper RCAN: [Image Super-Resolution Using Very Deep Residual Channel Attention Networks](https://arxiv.org/abs/1807.02758)
+
+-----
+
 - [Tianxiaomo/pytorch-YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4)
 - https://github.com/eriklindernoren/PyTorch-YOLOv3
 - https://github.com/marvis/pytorch-caffe-darknet-convert
