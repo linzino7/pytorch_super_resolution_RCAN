@@ -1,7 +1,7 @@
-# pytorch super resolution RCAN by BasicSR
+# pytorch 3X super resolution RCAN by BasicSR
 This Rep is HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
 
-super resolution trained by RCAN.
+3x super resolution trained by RCAN.
 
 Model training by  [BasicSR](https://github.com/xinntao/BasicSR). 
 
@@ -123,8 +123,12 @@ $ python3 BasicSR/inference/inference_MSRResNet.py \
 ```
 
 ## result by PSNR 25.07
-ground trouth 
+ground trouth：
+
 ![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/04.png)
+
+result：
+
 ![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/04.png)
 
 # Reference:
