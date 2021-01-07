@@ -122,7 +122,22 @@ $ python3 BasicSR/inference/inference_MSRResNet.py \
  --folder data/testing_lr_images/
 ```
 
-## result by PSNR 25.07
+## result 
+### result in different model
+format： Model_upscale_numFeat_trainImgSize_interation
+- RCAN_x3_64_384_3000：_psnr_25.078
+- RCAN_x3_64_96_2000：psnr_23.933
+- RCAN_x3_128_384_4000：psnr_25.054
+- RCAN_x3_128_288_10000：psnr_23.676
+- EDSR_Mx3_64_384_6500：psnr_25.054
+- EDSR_Mx3_64_288_6000：psnr_24.097
+- EDSR_Lx3_256_288_10000：psnr_23.687
+- MSRResNet_x3_64_288_15000：psnr 23.438
+- MSRResNet_ x3_64_288_16000：psnr_23.472
+- MSRResNet_ x3_64_384_16000：psnr_23.472
+- MSRResNet_x3_64_192_100000：psnr_22.052
+
+### by PSNR 25.07
 ground trouth 04.png：
 
 ![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/04.png)
