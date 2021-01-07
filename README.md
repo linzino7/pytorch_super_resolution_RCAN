@@ -1,4 +1,4 @@
-# pytorch-super_resolution-RCAN by BasicSR
+# pytorch super resolution RCAN by BasicSR
 HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
 
 
