@@ -49,23 +49,8 @@ pre_preocess.py
 Download and extract *training_hr_images.zip* and *testing_lr_images.zip* to *data* directory.
 
 ### Transform data
-Use construct_datasets.py to make train.txt .
-
 ```
-# train.txt and val.txt  
-# left(x1) top(y1)  right(x2) bottom(y2) label
-image_path1 x1,y1,x2,y2,id x1,y1,x2,y2,id x1,y1,x2,y2,id ...
-image_path2 x1,y1,x2,y2,id x1,y1,x2,y2,id x1,y1,x2,y2,id ...
-...
-```
-
-Names file  example is in [data/SVHN.names](https://github.com/linzino7/pytorch-YOLOv4/blob/master/data/SVHN.names)
-```
-# names file
-Label1
-Label2
-Label3
-...
+$ python 
 ```
 
 ### Prepare Images
@@ -136,6 +121,11 @@ $ python3 BasicSR/inference/inference_MSRResNet.py \
  --model_path BasicSR/experiments/003_MSRResNet_x3_f64b16_hw04_192/models/net_g_20000.pth \
  --folder data/testing_lr_images/
 ```
+
+## result by PSNR 25.07
+ground trouth 
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/data/testing_lr_images/04.png)
+![](https://github.com/linzino7/pytorch_super_resolution_RCAN_BasicSR/blob/main/result/RCANx3_g64b32_gt96_te384_3000_4_psnr_25.078_______/04.png)
 
 # Reference:
 - Paper RCAN: [Image Super-Resolution Using Very Deep Residual Channel Attention Networks](https://arxiv.org/abs/1807.02758)
