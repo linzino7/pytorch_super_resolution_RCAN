@@ -18,12 +18,6 @@ To reproduct my submission without retrainig, do the following steps:
 2.  [Training](#Training)
 3.  [Inference](#Inference)
 
-
-## Pytorch Weights Download 
-- google (provided by Tianxiaomo/pytorch-YOLOv4)
-    - yolov4.pth(https://drive.google.com/open?id=1wv_LiFeCRYwtpkqREPeI13-gPELBDwuJ)
-    - yolov4.conv.137.pth(https://drive.google.com/open?id=1fcbR0bWzYfIEdLJPzOsn4R5mlvR6IQyA)
-
 ## Dataset Preparation
 All required files except images are already in data directory.
 If you generate CSV files (duplicate image list, split, leak.. ), original files are overwritten. The contents will be changed, but It's not a problem.
