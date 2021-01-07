@@ -1,10 +1,6 @@
-# pytorch-super_resolution-RCAN
+# pytorch-super_resolution-RCAN by BasicSR
 HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
 
-
-
-# pytorch-YOLOv4
-A minimal PyTorch implementation of YOLOv4.
 
 This Rep forked from [Tianxiaomo/pytorch-YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4). See [Original_README](https://github.com/linzino7/pytorch-YOLOv4/blob/master/Original_README.md).
 
@@ -12,7 +8,7 @@ This Rep forked from [Tianxiaomo/pytorch-YOLOv4](https://github.com/Tianxiaomo/p
 - Ubuntu 18.04 LTS
 - Intel(R) Core(TM) i7-6900K CPU @ 3.20GHz
 - 31 RAM
-- NVIDIA RTX 1080 8G * 4
+- NVIDIA RTX 1080 8G * 2
 
 ## Reproducing Submission
 To reproduct my submission without retrainig, do the following steps:
