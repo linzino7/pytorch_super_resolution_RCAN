@@ -1,8 +1,9 @@
 # pytorch super resolution RCAN by BasicSR
-HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
+This Rep is HW04 in NCTU 202009 Selected Topics in Visual Recognition using Deep Learning.  
 
+super resolution trained by RCAN.
 
-This Rep forked from [Tianxiaomo/pytorch-YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4). See [Original_README](https://github.com/linzino7/pytorch-YOLOv4/blob/master/Original_README.md).
+Model training by  [BasicSR](https://github.com/xinntao/BasicSR). 
 
 ## Hardware
 - Ubuntu 18.04 LTS
