@@ -86,16 +86,27 @@ You can setting bach size and epoch in [options/train_RCANx3_g64b32_gt96_te384.y
 
 ### Train models
 To train models, run following commands.
+
+- RCAN
 ```
 $ python3 BasicSR/basicsr/train.py -opt options/train_RCANx3_g64b32_gt96_te384.yml
 ```
+- EDSR
+```
+$  python3 BasicSR/basicsr/train.py -opt options/train_EDSR_Mx3_te384.yml
+```
+- MSRResNet
+```
+$ python3 BasicSR/basicsr/train.py -opt options/train_MSRResNet_x3_z.yml
+```
+
 The expected training times are:
 
 Model | GPUs | Image size | Training Epochs | Training Time | Bach Size |
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------|
-YOLOv4 | 1x NVIDIA T4 | 608x608 | 1 | 2.5 hours | 4 |
-YOLOv4 | 4x NVIDIA GTX 1080 | 608x608 | 1 | 0.6 hour | 32 |
-
+RCAN | 1x NVIDIA GTX 1080 | 384x384 | 1 | s mins | 32 |
+EDSR | 1x NVIDIA GTX 1080 | 384x384 | 1 | 1 mins | 64 |
+MSRResNet | 1x NVIDIA GTX 1080 |384x384 | 1 | 4 mins | 8 |
 ### Muti-GPU Training
 ```
 $ python3 -m torch.distributed.launch --nproc_per_node=2 --master_port=4321 BasicSR/basicsr/train.py \
@@ -105,22 +116,27 @@ $ python3 -m torch.distributed.launch --nproc_per_node=2 --master_port=4321 Basi
 ## Inference
 
 ### Inference images in folder
+- RCAN
 ```
 $ python3 inference/inference_RCAN.py \
  --model_path BasicSR/experiments/201_RCANx3_g64b32_gt96_te384/models/net_g_2000.pth \
  --folder data/testing_lr_images/ \
  --output_folder results/RCANx3_g64b32_gt96_te384_2000/ 
 ```
+- EDSR
+```
+$ python3 inference/inference_EDSR_Mx3.py \
+ --model_path BasicSR/experiments/202_EDSR_Mx3_f64b16_te384/models/net_g_6000.pth \
+ --folder data/testing_lr_images/ \
+ --output_folder results/EDSR_Mx3_f64b16_te384_6000/ 
+```
+- MSRResNet
+```
+$ python3 BasicSR/inference/inference_MSRResNet.py \
+ --model_path BasicSR/experiments/003_MSRResNet_x3_f64b16_hw04_192/models/net_g_20000.pth \
+ --folder data/testing_lr_images/
+```
 
 # Reference:
 - Paper RCAN: [Image Super-Resolution Using Very Deep Residual Channel Attention Networks](https://arxiv.org/abs/1807.02758)
-
------
-
-- [Tianxiaomo/pytorch-YOLOv4](https://github.com/Tianxiaomo/pytorch-YOLOv4)
-- https://github.com/eriklindernoren/PyTorch-YOLOv3
-- https://github.com/marvis/pytorch-caffe-darknet-convert
-- https://github.com/marvis/pytorch-yolo3
-- Paper Yolo v4: https://arxiv.org/abs/2004.10934
-- Source code:https://github.com/AlexeyAB/darknet
-- More details: http://pjreddie.com/darknet/yolo/
+- BasicSR: https://github.com/xinntao/BasicSR
